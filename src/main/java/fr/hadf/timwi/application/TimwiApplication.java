@@ -1,4 +1,4 @@
-package fr.hadf.timwi;
+package fr.hadf.timwi.application;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
