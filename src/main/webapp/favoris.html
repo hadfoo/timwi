@@ -3,48 +3,30 @@
 <head>
 	<meta charset="UTF-8">
 	<title>Heroes List</title>
-	<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 	<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 	<script src="https://cdn.jsdelivr.net/npm/vue@2.5.16/dist/vue.js"></script>
-	<script src="https://cdn.jsdelivr.net/npm/vue-resource@1.5.1"></script>
 	<script src="/js/app.js"></script>
 	
 	<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
 	<link href="/css/style.css" rel="stylesheet">
 </head>
 
 <body>
 <nav class="navbar navbar-default">
 	<ul class="nav navbar-nav">
-		<li class="active"><a href="#">Galerie</a></li>
-		<li><a href="/favoris.html">Favoris</a></li>
+		<li><a href="/index.html">Galerie</a></li>
+		<li class="active"><a href="#">Favoris</a></li>
 	</ul>
 </nav>
 
 <div id="heroes" class="container">
 	<div class="row col-lg-offset-3">
 		<div v-for="hero in heroesList" class="col-lg-3">
-			<div class="hero-name">
-				{{hero.name}}
-				<i class="far fa-star add-hero" v-on:click="promptAlbum" v-bind:data-id="hero.id"></i>
-			</div>
 			<img v-bind:alt="'Image of ' + hero.name" v-bind:src="hero.thumbnail" class="img-responsive">
+			<div class="hero-name">{{hero.name}}</div>
 			<div class="hero-description">{{hero.description}}</div>
 		</div>
 	</div>
-	<modal v-if="showModal"></modal>
-	<script type="text/x-template" id="modal-template">
-		<transition name="modal">
-			<div class="popup">
-				<div class="content">
-					<div class="prompt">Enregistrer dans l'album :</div>
-					<input type="text" v-model="album">
-					<button v-on:click="addHero">Ajouter</button>
-				</div>
-			</div>
-		</transition>
-	</script>
-	</div>
+</div>
 </body>
 </html>
