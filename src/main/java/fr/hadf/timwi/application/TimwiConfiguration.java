@@ -2,6 +2,7 @@ package fr.hadf.timwi.application;
 
 import javax.sql.DataSource;
 
+import org.springframework.boot.autoconfigure.domain.EntityScan;
 import org.springframework.boot.jdbc.DataSourceBuilder;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -10,6 +11,7 @@ import org.springframework.jdbc.datasource.DataSourceTransactionManager;
 import org.springframework.transaction.PlatformTransactionManager;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+@EntityScan("fr.hadf.timwi.entity")
 @EnableTransactionManagement
 @ComponentScan("fr.hadf.timwi")
 @Configuration

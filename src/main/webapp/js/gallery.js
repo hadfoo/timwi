@@ -1,10 +1,7 @@
-Vue.component('modal', {
-	template: '#modal-template'
-})
 Vue.use(VueResource);
 
 window.onload = function () {
-	new Vue({
+	var heroes = new Vue({
 		el: '#heroes',
 		data : {
 			showModal: false,
@@ -34,10 +31,22 @@ window.onload = function () {
 				var id = event.srcElement.getAttribute('data-id');
 				this.showModal = true;
 				this.heroId = id;
-			},
-			addHero: function(event) {
-				this.$http.put('/favorite/add/'+this.album+'/'+this.heroId);
 			}
 		}
 	});
+	
+	Vue.component('modal', {
+		template: '#modal-template',
+		data: function(){
+			return {
+				album: null,
+				heroes: heroes
+			}
+		},
+		methods: {
+			addHero: function(event) {
+				this.$http.put('/favorite/add/'+this.album+'/'+this.heroes.heroId);
+			}
+		}
+	})
 }

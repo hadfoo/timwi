@@ -26,6 +26,9 @@ public class FavoriteServiceImpl implements IFavoriteService {
 
 	@Override
 	public List<FavoriteEntity> getList(Integer page, String album) {
+		if (page == null) {
+			page = 0;
+		}
 		if (StringUtils.isEmpty(album)) {
 			return favoriteDAO.getList(page);
 		}
