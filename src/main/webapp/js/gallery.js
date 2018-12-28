@@ -1,6 +1,7 @@
 Vue.component('modal', {
 	template: '#modal-template'
 })
+Vue.use(VueResource);
 
 window.onload = function () {
 	new Vue({
@@ -35,9 +36,7 @@ window.onload = function () {
 				this.heroId = id;
 			},
 			addHero: function(event) {
-				this.$http.put('/favorite/add/'+this.album+'/'+this.heroId).then(function() {
-					
-				});
+				this.$http.put('/favorite/add/'+this.album+'/'+this.heroId);
 			}
 		}
 	});
