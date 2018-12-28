@@ -45,7 +45,10 @@ window.onload = function () {
 		},
 		methods: {
 			addHero: function(event) {
-				this.$http.put('/favorite/add/'+this.album+'/'+this.heroes.heroId);
+				var me = this;
+				this.$http.put('/favorite/add/'+this.album+'/'+this.heroes.heroId).then(function() {
+					me.heroes.showModal = false;
+				});
 			}
 		}
 	})
